@@ -50,6 +50,7 @@ export class ReactNativeModal extends Component {
     onModalHide: PropTypes.func,
     onBackButtonPress: PropTypes.func,
     onBackdropPress: PropTypes.func,
+    renderBackdropChild: PropTypes.func,
     onSwipe: PropTypes.func,
     swipeThreshold: PropTypes.number,
     swipeDirection: PropTypes.oneOf(["up", "down", "left", "right"]),
@@ -472,6 +473,8 @@ export class ReactNativeModal extends Component {
         )}
 
         {!avoidKeyboard && containerView}
+
+        {this.props.renderBackdropChild && this.props.renderBackdropChild()}
       </Modal>
     );
   }
